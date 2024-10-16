@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+              @model IEnumerable<WebApplication7.Models.Resume>
+
+@{
+    ViewData["Title"] = "My Resumes";
+}
+
+<h2>My Resumes</h2>
+
+@if (!Model.Any())
+{
+    <p>You have not created any resumes yet.</p>
+}
+else
+{
+    <div class="resume-list">
+        @foreach (var resume in Model)
+        {
+            <div class="resume-card">
+                <h3>Resume Summary</h3>
+                <p><strong>Summary:</strong> @resume.Summary</p>
+                <p><strong>Skills:</strong> @resume.Skills</p>
+
+                <h4>Experiences</h4>
+                @if (resume.Experiences.Any())
+                {
+                    <ul>
+                        @foreach (var experience in resume.Experiences)
+                        {
+                            <li>
+                                <strong>@experience.CompanyName</strong> at @experience.CompanyName<br />
+                                <em>@experience.StartDate?.ToString("MMMM yyyy") - @experience.EndDate?.ToString("MMMM yyyy") ?? "Present"</em><br />
+                                <p>@experience.Responsibilities</p>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No experiences added.</p>
+                }
+
+                <h4>Education</h4>
+                @if (resume.Educations.Any())
+                {
+                    <ul>
+                        @foreach (var education in resume.Educations)
+                        {
+                            <li>
+                                <strong>@education.SchoolName</strong> - @education.FieldOfStudy<br />
+                                Graduation Year: @education.GraduationYear
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No education records added.</p>
+                }
+
+                <h4>Projects</h4>
+                @if (resume.Projects.Any())
+                {
+                    <ul>
+                        @foreach (var project in resume.Projects)
+                        {
+                            <li>
+                                <strong>@project.ProjectTitle</strong><br />
+                                <p>@project.Description</p>
+                                <em>Technologies Used: @project.TechnologiesUsed</em>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No projects added.</p>
+                }
+
+                <!-- Option to edit or delete resume -->
+                <div class="resume-actions">
+                    <a asp-action="Edit" asp-route-id="@resume.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@resume.Id" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

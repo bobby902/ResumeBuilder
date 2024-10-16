@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model User
+
+@{
+    ViewBag.Title = "User Details";
+}
+
+<div class="container mt-4">
+    <div class="card" style="width: 100%; max-width: 600px; margin: auto;">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Profile Image">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text"><strong>Email:</strong> @Model.Email</p>
+            <p class="card-text"><strong>Phone:</strong> @Model.Phone</p>
+            <p class="card-text"><strong>LinkedIn:</strong> <a href="@Model.LinkedIn" target="_blank">@Model.LinkedIn</a></p>
+            <p class="card-text"><strong>Preferred Track:</strong> @Model.PreferredTrack</p>
+            <p class="card-text"><strong>Major:</strong> @Model.Major</p>
+            <p class="card-text"><strong>University:</strong> @Model.University</p>
+            <p class="card-text"><strong>Graduation Year:</strong> @Model.GraduationYear</p>
+            <p class="card-text"><strong>Resumes:</strong></p>
+            <ul class="list-group list-group-flush">
+                @foreach (var resume in Model.Resumes)
+                {
+                    <li class="list-group-item">@resume.Id</li>
+                }
+            </ul>
+            <a href="@Url.Action("EditForm", new { id = Model.Id })" class="btn btn-warning mt-2">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary mt-2">Back to List</a>
+        </div>
+    </div>
+</div>
+

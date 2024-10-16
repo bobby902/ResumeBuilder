@@ -1,0 +1,155 @@
+﻿
+ @{
+    ViewData["Title"] = "Resume Builder";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6EACDA 0%, #6EACDA 50%, #6a1b9a 100%);
+            color: #333;
+        }
+
+        .header {
+            position: relative;
+            background: url('https://your-image-url.com/background.jpg') no-repeat center center/cover; /* Add your image URL */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+            .header::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+            }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .card {
+            background-color: white;
+            border: none;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+            .card:hover {
+                transform: translateY(-10px);
+            }
+
+        .icon img {
+            max-width: 100px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #6a1b9a;
+        }
+
+        .btn-custom {
+            background: linear-gradient(45deg, #012f, #6a1b9a);
+            color: white;
+            border: none;
+        }
+
+            .btn-custom:hover {
+                background: linear-gradient(45deg, #6a1b9a, #012f);
+            }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Background Image -->
+    <header class="header">
+        <div class="header-content">
+            <div class="container">
+                <h1>Welcome to Resume Builder</h1>
+                <p>Start building your professional resume in just a few clicks.</p>
+                <a href="@Url.Action("AddForm", "User")" class="btn btn-lg btn-custom">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="icon">
+                            <img src="https://img.icons8.com/clouds/100/000000/resume.png" alt="Create Resume">
+                        </div>
+                        <h5 class="card-title">Create Resume</h5>
+                        <p>Build your resume step by step with our easy-to-use tools.</p>
+                        <a href="@Url.Action("Create", "Resume")" class="btn btn-custom">Create Now</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="icon">
+                            <img src="https://th.bing.com/th/id/OIP.lyXd0humrEprnVJ3RdTBLAHaHa?w=165&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" alt="View Resumes">
+                        </div>
+                        <h5 class="card-title">View Resumes</h5>
+                        <p>Browse and manage all your saved resumes in one place.</p>
+                        <a href="@Url.Action("Index", "Resume")" class="btn btn-custom">View Resumes</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="icon">
+                            <img src="https://th.bing.com/th/id/OIP.tu8rvaP_gc70EHI-HzQuwgHaHa?w=177&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" alt="Edit Profile">
+                        </div>
+                        <h5 class="card-title">Edit Profile</h5>
+                        <p>Update your personal information and account settings.</p>
+                        <a href="@Url.Action("Edit", "User")" class="btn btn-custom">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+     <footer>
+        <p>&copy; 2024 Resume Builder. All rights reserved.</p>
+    </footer> 
+</body>
+</html>
+ 

@@ -1,0 +1,170 @@
+﻿@*  @model User
+
+@{
+    ViewBag.Title = "Add New User";
+    Layout = "~/Views/Shared/_Layout.cshtml";  // If using a common layout for theme consistency
+}
+
+<!-- Background Styling -->
+<div class="add-user-page" style="background-image: url('https://th.bing.com/th/id/OIP.rd5WZm1MAKAcyxkvW-zlQwHaDm?pid=ImgDet&w=474&h=230&rs=1'); background-size: cover; min-height: 100vh; padding-top: 100px;">
+    <div class="container" style="max-width: 600px; background-color: rgba(255, 255, 255, 0.8); padding: 30px; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 class="text-center mb-4">Add New User</h2>
+
+        @using (Html.BeginForm("AddtoData", "User", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <!-- User Name -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Name, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter your full name" })
+                @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- User Email -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter your email" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- User Password -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Password, new { @class = "form-label fw-bold" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter a password" })
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- User Phone -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Phone, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter your phone number" })
+                @Html.ValidationMessageFor(m => m.Phone, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.LinkedIn, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.LinkedIn, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter LinkedIn profile URL" })
+                @Html.ValidationMessageFor(m => m.LinkedIn, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- Preferred Track -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.PreferredTrack, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.PreferredTrack, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Your preferred track" })
+                @Html.ValidationMessageFor(m => m.PreferredTrack, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- Major -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Major, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Major, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Your major" })
+                @Html.ValidationMessageFor(m => m.Major, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- University -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.University, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.University, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Your university" })
+                @Html.ValidationMessageFor(m => m.University, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- Graduation Year -->
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.GraduationYear, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.GraduationYear, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Graduation year" })
+                @Html.ValidationMessageFor(m => m.GraduationYear, null, new { @class = "text-danger" })
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow">Add User</button>
+            </div>
+        }
+    </div>
+</div>
+ *@
+ @model User
+
+@{
+    ViewBag.Title = "Sign Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";  
+}
+
+<div class="add-user-page" style="background-color: #f8f9fa; min-height: 100vh; padding-top: 100px;">
+    <div class="container" style="max-width: 600px; background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 class="text-center mb-4">Sign Up</h2>
+
+        @using (Html.BeginForm("AddtoData", "User", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+        {
+            @Html.AntiForgeryToken()
+
+            
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Name, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter your full name" })
+                @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter your email" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+            </div>
+
+            
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Password, new { @class = "form-label fw-bold" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter a password" })
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Phone, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter your phone number" })
+                @Html.ValidationMessageFor(m => m.Phone, null, new { @class = "text-danger" })
+            </div>
+
+            
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.LinkedIn, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.LinkedIn, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Enter LinkedIn profile URL" })
+                @Html.ValidationMessageFor(m => m.LinkedIn, null, new { @class = "text-danger" })
+            </div>
+
+            
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.PreferredTrack, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.PreferredTrack, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Your preferred track" })
+                @Html.ValidationMessageFor(m => m.PreferredTrack, null, new { @class = "text-danger" })
+            </div>
+
+          
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.Major, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Major, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Your major" })
+                @Html.ValidationMessageFor(m => m.Major, null, new { @class = "text-danger" })
+            </div>
+
+            
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.University, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.University, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Your university" })
+                @Html.ValidationMessageFor(m => m.University, null, new { @class = "text-danger" })
+            </div>
+
+           
+            <div class="form-group mb-4">
+                @Html.LabelFor(m => m.GraduationYear, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.GraduationYear, new { @class = "form-control rounded-pill shadow-sm", placeholder = "Graduation year" })
+                @Html.ValidationMessageFor(m => m.GraduationYear, null, new { @class = "text-danger" })
+            </div>
+
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow">Add User</button>
+            </div>
+        }
+    </div>
+</div>
